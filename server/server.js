@@ -4,7 +4,7 @@ import cors from "cors"
 import connectDB from "./config/db.js"
 import authRoutes from './routes/authRoutes.js'
 import { protect } from "./middleware/authMiddleware.js"
-
+import schemeRoutes from "./routes/schemeRoutes.js"
 dotenv.config()
 connectDB()
 
@@ -13,6 +13,7 @@ const app=express()
 app.use(cors()) // Frontend <-> Backend
 app.use(express.json()) //understand json data
 app.use('/api/auth',authRoutes)
+app.use('/api/schemes',schemeRoutes)
 
 const PORT=process.env.PORT ||5000
 

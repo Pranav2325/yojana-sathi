@@ -27,7 +27,7 @@ const schemeSchema = new mongoose.Schema(
         enum: ["male", "female", "any"],
         default: "any",
       },
-      maxAnnualIncome: { type: Numbder, default: 1000000 },
+      maxAnnualIncome: { type: Number, default: 1000000 },
       casteRequired: [{ type: String }],
       states: [
         {

@@ -6,7 +6,7 @@ export const getMatchedSchemes = async (req, res) => {
     const user = await User.findById(req.user._id);
     if (!user.profile || !user.profile.age) {
       return res.status(400).json({
-        message: "Please compl+ete your profile first",
+        message: "Please complete your profile first",
       });
     }
 

@@ -1,15 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-indigo-700">YojanaSathi</h1>
-        <p className="text-gray-500 mt-2 font-medium">
-          Know every scheme you deserve
-        </p>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<div>Landing Page</div>}/>
+        <Route path="/login" element={<div>Login Page</div>}/>
+        <Route path="/register" element={<div>Register Page</div>}/>
+        <Route path="/dashboard" element={<div>Dashboard Page</div>}/>
+        <Route path="/profile" element={<div>Profile Page</div>}/>
+        <Route path="/schemes" element={<div>All Schemes Page</div>}/>
+        <Route path="/scheme/:id" element={<div>Scheme detail Page</div>}/>
+      </Routes>
+
+    </Router>
   );
 };
 

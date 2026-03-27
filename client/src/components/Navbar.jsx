@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authSlice";
@@ -7,10 +7,13 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+  const [isOpen,setIsOpen]=useState(false)
+
 
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
+    setIsOpen(false)
   };
   return (
     <nav className="bg-white border-b border-gray-200 px-6 py-4">
@@ -18,7 +21,7 @@ const Navbar = () => {
         <Link to="/" className="text-xl font-bold text-indigo-700">
           YojnaSathi
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <Link
             to="/schemes"
             className="text-gray-600 hover:text-indigo-700 font-medium"
@@ -58,7 +61,60 @@ const Navbar = () => {
             </>
           )}
         </div>
+        <button className="md:hidden flex flex-col gap-1" onClick={()=>setIsOpen(!isOpen)}>
+          <span  className="w-6 h-0.5 bg-gray-700"></span>
+          <span  className="w-6 h-0.5 bg-gray-700"></span>
+          <span  className="w-6 h-0.5 bg-gray-700"></span>
+          
+        </button>
       </div>
+
+      {isOpen&&(
+        <div className="md:hidden mt-4 flex flex-col gap-4 px-2 pb-4">
+          <Link
+            to="/schemes"
+            className="text-gray-600  font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Browse Schemes
+          </Link>
+
+          {user ? (
+            <>
+              <Link
+                to="/dashboard"
+                className="text-gray-600  font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Dashboard
+              </Link>
+              <button
+                className="text-left text-gray-600 font-medium"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-gray-600 font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="text-gray-600 font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

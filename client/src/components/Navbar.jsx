@@ -16,11 +16,17 @@ const Navbar = () => {
     setIsOpen(false)
   };
   return (
+    // outer div
     <nav className="bg-white border-b border-gray-200 px-6 py-4">
+      {/* inner div */}
       <div className="max-w-6xl mx-auto flex items-center justify-between">
+        {/* logo */}
         <Link to="/" className="text-xl font-bold text-indigo-700">
           YojnaSathi
         </Link>
+
+        {/* menu for large screens */}
+
         <div className="hidden md:flex items-center gap-6">
           <Link
             to="/schemes"
@@ -61,6 +67,7 @@ const Navbar = () => {
             </>
           )}
         </div>
+         {/* hamburger menu for mobiles */}
         <button className="md:hidden flex flex-col gap-1" onClick={()=>setIsOpen(!isOpen)}>
           <span  className="w-6 h-0.5 bg-gray-700"></span>
           <span  className="w-6 h-0.5 bg-gray-700"></span>
@@ -68,6 +75,7 @@ const Navbar = () => {
           
         </button>
       </div>
+      {/* hamburger menu logic */}
 
       {isOpen&&(
         <div className="md:hidden mt-4 flex flex-col gap-4 px-2 pb-4">

@@ -2,13 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Navbar from './components/Navbar'
+import LandingPage from "./pages/LandingPage";
 const App = () => {
   return (
     <Router>
       <Toaster position="top-right"/>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<div>Landing Page</div>}/>
+        <Route path="/" element={<LandingPage/>}/>
         <Route path="/login" element={<div>Login Page</div>}/>
         <Route path="/register" element={<div>Register Page</div>}/>
         <Route path="/dashboard" element={<div>Dashboard Page</div>}/>

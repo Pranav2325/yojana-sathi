@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import MatchedSchemesPage from "./pages/MatchedSchemesPage";
 import SchemeDetailPage from "./pages/SchemeDetailPage";
+import SchemesPage from "./pages/SchemesPage";
 const App = () => {
   return (
     <Router>
@@ -21,7 +22,7 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/schemes/matched" element={<MatchedSchemesPage/>}/>
         <Route path="/schemes/:id" element={<SchemeDetailPage/>}/>
-        <Route path="/schemes" element={<div>All Schemes Page</div>}/>
+        <Route path="/schemes" element={<SchemesPage/>}/>
         
         
       </Routes>

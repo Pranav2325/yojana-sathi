@@ -10,6 +10,7 @@ import MatchedSchemesPage from "./pages/MatchedSchemesPage";
 import SchemeDetailPage from "./pages/SchemeDetailPage";
 import SchemesPage from "./pages/SchemesPage";
 import DashboardPage from "./pages/DashboardPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 const App = () => {
   return (
     <Router>
@@ -19,9 +20,9 @@ const App = () => {
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/dashboard" element={<DashboardPage/>}/>
-        <Route path="/profile" element={<ProfilePage/>}/>
-        <Route path="/schemes/matched" element={<MatchedSchemesPage/>}/>
+        <Route path="/dashboard" element={<ProtectedRoute><DashboardPage/></ProtectedRoute>}/>
+        <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
+        <Route path="/schemes/matched" element={<ProtectedRoute><MatchedSchemesPage/></ProtectedRoute>}/>
         <Route path="/schemes/:id" element={<SchemeDetailPage/>}/>
         <Route path="/schemes" element={<SchemesPage/>}/>
         

@@ -30,6 +30,7 @@ const SchemeDetailPage = () => {
     setSaving(true);
     try {
       await api.put(`/users/save/${id}`);
+      toast.success("Scheme saved")
     } catch (error) {
       toast.error("Failed to save scheme");
     } finally {

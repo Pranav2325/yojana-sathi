@@ -9,6 +9,7 @@ import ProfilePage from "./pages/ProfilePage";
 import MatchedSchemesPage from "./pages/MatchedSchemesPage";
 import SchemeDetailPage from "./pages/SchemeDetailPage";
 import SchemesPage from "./pages/SchemesPage";
+import DashboardPage from "./pages/DashboardPage";
 const App = () => {
   return (
     <Router>
@@ -18,7 +19,7 @@ const App = () => {
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/dashboard" element={<div>Dashboard Page</div>}/>
+        <Route path="/dashboard" element={<DashboardPage/>}/>
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/schemes/matched" element={<MatchedSchemesPage/>}/>
         <Route path="/schemes/:id" element={<SchemeDetailPage/>}/>

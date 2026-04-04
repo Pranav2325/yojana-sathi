@@ -6,6 +6,7 @@ import authRoutes from './routes/authRoutes.js'
 import { protect } from "./middleware/authMiddleware.js"
 import schemeRoutes from "./routes/schemeRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import adminRoutes from "./routes/adminRoutes.js"
 dotenv.config()
 connectDB()
 
@@ -16,6 +17,7 @@ app.use(express.json()) //understand json data
 app.use('/api/auth',authRoutes)
 app.use('/api/schemes',schemeRoutes)
 app.use('/api/users',userRoutes)
+app.use('/api/admin',adminRoutes)
 
 const PORT=process.env.PORT ||5000
 

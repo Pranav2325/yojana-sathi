@@ -30,7 +30,7 @@ const AdminPage = () => {
 
   const fetchSchemes = async () => {
     try {
-      const { data } = await api.get('/admin/schemes');
+      const { data } = await api.get("/admin/schemes");
       setSchemes(data.schemes);
     } catch (error) {
       toast.error("Failed to load schemes");
@@ -66,6 +66,25 @@ const AdminPage = () => {
       };
       await api.post("/admin/schemes", schemeData);
       toast.success("Scheme added successfully");
+      setFormData({
+        title: "",
+        description: "",
+        category: "student",
+        benefits: "",
+        applicationLink: "",
+        documentsRequired: "",
+        eligibility: {
+          minAge: 0,
+          maxAge: 100,
+          gender: "any",
+          maxAnnualIncome: 1000000,
+          casteRequired: ["all"],
+          states: ["all"],
+          isStudentRequired: false,
+          isFarmerRequired: false,
+          isWomanRequired: false,
+        },
+      });
       fetchSchemes();
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to add scheme");
@@ -310,7 +329,7 @@ const AdminPage = () => {
                     {scheme.title}
                   </h3>
                   <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${scheme.isActive?'bg-green-100 text-green-700':'bg-gray-100 text-gray-500'}`}
+                    className={`text-xs px-2 py-0.5 rounded-full ${scheme.isActive ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}
                   >
                     {scheme.isActive ? "Active" : "Inactive"}
                   </span>

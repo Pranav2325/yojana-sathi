@@ -13,7 +13,7 @@ const schemeSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["student", "farmer", "women", "scst", "buisness", "general"],
+      enum: ["student", "farmer", "women", "scst", "business", "general"],
       required: true,
     },
     benefits: {

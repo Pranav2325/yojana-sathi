@@ -11,6 +11,8 @@ import SchemeDetailPage from "./pages/SchemeDetailPage";
 import SchemesPage from "./pages/SchemesPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
+import AdminPage from "./pages/AdminPage";
 const App = () => {
   return (
     <Router>
@@ -25,6 +27,7 @@ const App = () => {
         <Route path="/schemes/matched" element={<ProtectedRoute><MatchedSchemesPage/></ProtectedRoute>}/>
         <Route path="/schemes/:id" element={<SchemeDetailPage/>}/>
         <Route path="/schemes" element={<SchemesPage/>}/>
+        <Route path="/admin" element={<AdminRoute><AdminPage/></AdminRoute>}/>
         
         
       </Routes>

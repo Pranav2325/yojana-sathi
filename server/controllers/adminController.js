@@ -33,3 +33,14 @@ export const toggleScheme = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+export const getAllSchemesAdmin = async (req, res) => {
+  try {
+    const schemes = await Scheme.find({});
+    res.json({
+      count: schemes.length,
+      schemes,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

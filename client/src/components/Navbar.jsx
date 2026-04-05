@@ -7,13 +7,12 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  const [isOpen,setIsOpen]=useState(false)
-
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
-    setIsOpen(false)
+    setIsOpen(false);
   };
   return (
     // outer div
@@ -43,6 +42,14 @@ const Navbar = () => {
               >
                 Dashboard
               </Link>
+              {user?.role === "admin" && (
+                <Link
+                  to="/admin"
+                  className="text-gray-600 hover:text-indigo-700 font-medium"
+                >
+                  Admin
+                </Link>
+              )}
               <button
                 className="bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-800"
                 onClick={handleLogout}
@@ -67,17 +74,19 @@ const Navbar = () => {
             </>
           )}
         </div>
-         {/* hamburger menu for mobiles */}
-        <button className="md:hidden flex flex-col gap-1" onClick={()=>setIsOpen(!isOpen)}>
-          <span  className="w-6 h-0.5 bg-gray-700"></span>
-          <span  className="w-6 h-0.5 bg-gray-700"></span>
-          <span  className="w-6 h-0.5 bg-gray-700"></span>
-          
+        {/* hamburger menu for mobiles */}
+        <button
+          className="md:hidden flex flex-col gap-1"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="w-6 h-0.5 bg-gray-700"></span>
+          <span className="w-6 h-0.5 bg-gray-700"></span>
+          <span className="w-6 h-0.5 bg-gray-700"></span>
         </button>
       </div>
       {/* hamburger menu logic */}
 
-      {isOpen&&(
+      {isOpen && (
         <div className="md:hidden mt-4 flex flex-col gap-4 px-2 pb-4">
           <Link
             to="/schemes"

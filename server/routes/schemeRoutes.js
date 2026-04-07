@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/matched", protect, getMatchedSchemes);
 router.get("/", getAllSchemes);
-router.get("/:id", protect, getSchemeById);
+router.get("/:id", getSchemeById);
 router.post("/", protect, async (req, res) => {
   try {
     const scheme = await Scheme.create(req.body);

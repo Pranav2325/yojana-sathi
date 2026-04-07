@@ -11,7 +11,7 @@ import User from "../models/User.js";
 const router = express.Router();
 
 router.get("/matched", protect, getMatchedSchemes);
-router.get("/", protect, getAllSchemes);
+router.get("/", getAllSchemes);
 router.get("/:id", protect, getSchemeById);
 router.post("/", protect, async (req, res) => {
   try {

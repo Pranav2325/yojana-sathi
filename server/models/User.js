@@ -36,8 +36,25 @@ const userSchema = new mongoose.Schema(
     },
     savedSchemes: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Scheme",
+        scheme: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Scheme",
+        },
+        status: {
+          type: String,
+          enum: ["saved", "applied", "received"],
+          default: "saved",
+        },
+        savedAt: {
+          type: Date,
+          default: Date.now,
+        },
+        appliedAt: {
+          type: Date,
+        },
+        notes: {
+          type: String,
+        },
       },
     ],
   },
@@ -45,5 +62,5 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
-const User=mongoose.model('User',userSchema)
-export default User
+const User = mongoose.model("User", userSchema);
+export default User;

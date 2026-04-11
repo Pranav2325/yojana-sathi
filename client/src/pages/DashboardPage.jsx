@@ -44,7 +44,7 @@ const DashboardPage = () => {
   };
 
   const getSchemesByStatus = (status) => {
-    return savedSchemes.filter((item) => item.status === status);
+    return savedSchemes.filter((item) => item.status === status&& item.scheme);
   };
 
   if (loading) {
